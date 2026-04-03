@@ -1,15 +1,172 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Psalm App — Legal</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psalm App — Legal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #EDE0C8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      font-family: Georgia, serif;
+    }
+    .card {
+      background: #F2E8D5;
+      border-radius: 16px;
+      padding: 36px 32px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid rgba(200,150,12,0.2);
+    }
+    .header {
+      border-bottom: 1px solid rgba(200,150,12,0.3);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #C8960C;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #1C0E02;
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #8A7050;
+      letter-spacing: 2px;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #8A7050;
+      margin: 0 0 10px 2px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(200,150,12,0.3);
+      border-radius: 8px;
+      padding: 13px 16px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .link-item:hover {
+      background: rgba(255,255,255,0.95);
+    }
+    .link-name {
+      font-size: 14px;
+      color: #1C0E02;
+    }
+    .badge-gold {
+      font-size: 11px;
+      background: #C8960C;
+      color: #1C0E02;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+    .badge-dark {
+      font-size: 11px;
+      background: #4A2C0A;
+      color: #F2E8D5;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+    .divider {
+      height: 1px;
+      background: rgba(200,150,12,0.2);
+      margin: 8px 0 16px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(200,150,12,0.2);
+    }
+    .footer p {
+      font-size: 11px;
+      color: #8A7050;
+      letter-spacing: 1px;
+    }
+    .footer a {
+      color: #C8960C;
+      text-decoration: none;
+      font-size: 11px;
+    }
+  </style>
+</head>
 <body>
-<h2>Psalm App</h2>
-<ul>
-<li><a href="terms-en.html">Terms of Use (EN)</a></li>
-<li><a href="terms-pt.html">Termos de Uso (PT)</a></li>
-<li><a href="terms-es.html">Términos de Uso (ES)</a></li>
-<li><a href="privacy-en.html">Privacy Policy (EN)</a></li>
-<li><a href="privacy-pt.html">Política de Privacidade (PT)</a></li>
-<li><a href="privacy-es.html">Política de Privacidad (ES)</a></li>
-</ul>
+  <div class="card">
+
+    <div class="header">
+      <p class="tag">PSALM APP ✦</p>
+      <h1>LEGAL</h1>
+      <p class="subtitle">TERMS OF USE · PRIVACY POLICY</p>
+    </div>
+
+    <p class="section-label">TERMS OF USE</p>
+    <div class="links">
+      <a class="link-item" href="terms-en.html">
+        <span class="link-name">Terms of Use</span>
+        <span class="badge-gold">EN</span>
+      </a>
+      <a class="link-item" href="terms-pt.html">
+        <span class="link-name">Termos de Uso</span>
+        <span class="badge-gold">PT</span>
+      </a>
+      <a class="link-item" href="terms-es.html">
+        <span class="link-name">Términos de Uso</span>
+        <span class="badge-gold">ES</span>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">PRIVACY POLICY</p>
+    <div class="links">
+      <a class="link-item" href="privacy-en.html">
+        <span class="link-name">Privacy Policy</span>
+        <span class="badge-dark">EN</span>
+      </a>
+      <a class="link-item" href="privacy-pt.html">
+        <span class="link-name">Política de Privacidade</span>
+        <span class="badge-dark">PT</span>
+      </a>
+      <a class="link-item" href="privacy-es.html">
+        <span class="link-name">Política de Privacidad</span>
+        <span class="badge-dark">ES</span>
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 Your Way Digital</p>
+      <a href="mailto:psalmapp@proton.me">psalmapp@proton.me</a>
+    </div>
+
+  </div>
 </body>
 </html>
