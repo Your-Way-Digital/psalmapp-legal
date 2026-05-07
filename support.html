@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psalm App — Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #EDE3D0;
+      font-family: 'Josefin Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    .card {
+      background: #FAF5EC;
+      border-radius: 18px;
+      max-width: 680px;
+      width: 100%;
+      padding: 52px 48px;
+      box-shadow: 0 4px 40px rgba(28,14,2,0.08);
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .header-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #C8960C;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1C0E02;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .header-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: #8A7050;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #C8960C;
+      opacity: 0.3;
+    }
+    .divider-diamond {
+      width: 6px;
+      height: 6px;
+      background: #C8960C;
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+
+    /* ── Section title ── */
+    .section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #C8960C;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: #FFF9EE;
+      border: 1px solid rgba(200,150,12,0.25);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .contact-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .contact-text h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1C0E02;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .contact-text p {
+      font-size: 12px;
+      font-weight: 400;
+      color: #8A7050;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+    }
+    .contact-text a {
+      color: #C8960C;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── FAQ items ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .faq-item {
+      background: #FFF9EE;
+      border: 1px solid rgba(200,150,12,0.2);
+      border-radius: 10px;
+      padding: 18px 22px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover {
+      border-color: rgba(200,150,12,0.5);
+    }
+    .faq-item.open {
+      border-color: rgba(200,150,12,0.45);
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-question span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1C0E02;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+    .faq-arrow {
+      font-size: 10px;
+      color: #C8960C;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      font-size: 12px;
+      font-weight: 400;
+      color: #6A5030;
+      line-height: 1.8;
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ── Legal links ── */
+    .legal-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .legal-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFF9EE;
+      border: 1px solid rgba(200,150,12,0.2);
+      border-radius: 10px;
+      padding: 16px 22px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .legal-link:hover {
+      border-color: rgba(200,150,12,0.5);
+    }
+    .legal-link span {
+      font-size: 13px;
+      font-weight: 400;
+      color: #1C0E02;
+      letter-spacing: 0.5px;
+    }
+    .legal-badge {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FAF5EC;
+      background: #C8960C;
+      border-radius: 4px;
+      padding: 3px 9px;
+      letter-spacing: 1px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(200,150,12,0.2);
+    }
+    .footer p {
+      font-size: 11px;
+      font-weight: 400;
+      color: #A08060;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .footer a {
+      font-size: 12px;
+      font-weight: 700;
+      color: #C8960C;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 520px) {
+      .card { padding: 36px 24px; }
+      .header h1 { font-size: 32px; }
+      .contact-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- Header -->
+    <div class="header">
+      <p class="header-tag">PSALM APP ✦</p>
+      <h1>Support</h1>
+      <p class="header-sub">Help &amp; Contact</p>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Contact -->
+    <p class="section-title">Contact Us</p>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-text">
+        <h3>Email Support</h3>
+        <p>For questions, issues, or feedback, reach us at:<br/>
+          <a href="mailto:psalmapp@proton.me">psalmapp@proton.me</a>
+        </p>
+        <p style="margin-top:6px;">We typically respond within 1–2 business days.</p>
+      </div>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- FAQ -->
+    <p class="section-title">Frequently Asked Questions</p>
+    <div class="faq-list">
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>How do I cancel my Premium subscription?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          On iPhone/iPad: go to Settings → Apple ID → Subscriptions → Psalm → Cancel Subscription. Your premium access remains active until the end of the billing period.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>I purchased Premium but it's not working. What should I do?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Please try restoring your purchases inside the app. If the issue persists, contact us at psalmapp@proton.me with your Apple ID and we will resolve it promptly.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>How many psalms can I spin for free?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Free users receive a limited number of spins per day. Upgrade to Premium for unlimited spins, notes, Hebrew text, and more.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>How do I delete my account?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          You can delete your account directly inside the app via Settings → Account → Delete Account. All your data will be permanently removed. If you need assistance, contact us at psalmapp@proton.me.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>Which languages does Psalm support?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          Psalm is available in English, Portuguese, and Spanish. Premium users also have access to the Hebrew text of each Psalm.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggle(this)">
+        <div class="faq-question">
+          <span>I forgot my password. How do I recover it?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          On the login screen, tap "Forgot password?" and enter your email address. You will receive a reset link shortly. Check your spam folder if you don't see it.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Legal links -->
+    <p class="section-title">Legal</p>
+    <div class="legal-links">
+      <a class="legal-link" href="https://your-way-digital.github.io/psalmapp-legal/">
+        <span>Terms of Use &amp; Privacy Policy</span>
+        <span class="legal-badge">LEGAL</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2026 Your Way Digital</p>
+      <a href="mailto:psalmapp@proton.me">psalmapp@proton.me</a>
+    </div>
+
+  </div>
+
+  <script>
+    function toggle(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
